@@ -5,6 +5,17 @@
   padding: 2rem;
 }
 
+.login h3 {
+  display: block;
+  margin-top: 3rem;
+  text-align: center;
+  color: #ffffff;
+}
+.login h3:hover {
+  color: #de065f;
+  cursor: pointer;
+}
+
 .control {
   margin: 1rem 0;
   display: flex;
@@ -37,7 +48,7 @@
 .control input:focus {
   outline: none;
   border-color: #4f005f;
-  background: #766a79;
+  background: #d587a7;
 }
 
 .control.invalid input {

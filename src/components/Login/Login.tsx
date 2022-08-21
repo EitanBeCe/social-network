@@ -67,6 +67,7 @@ const Login: React.FC<{
           </Button>
         </div>
       </form>
+      <h3>Not registred yet?</h3>
     </Card>
   );
 };

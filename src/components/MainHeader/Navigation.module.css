@@ -23,8 +23,9 @@
 
 .nav button {
   font: inherit;
-  background: #dd0db0;
-  border: 1px solid #dd0db0;
+
+  background: #de065f;
+  border: 1px solid #fff;
   padding: 0.5rem 1.5rem;
   color: white;
   cursor: pointer;
@@ -39,5 +40,6 @@
 .nav button:hover,
 .nav button:active {
   color: #f3cafb;
+  background: #8a033b;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.26);
 }
