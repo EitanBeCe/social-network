@@ -15,6 +15,7 @@ const MainHeader: React.FC<{
         src={logo}
         alt="logo"
       />
+      {/* <h1>Here you are! Come in!</h1> */}
       <Navigation isLoggedIn={isAuthenticated} onLogout={onLogout} />
     </header>
   );

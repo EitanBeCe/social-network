@@ -5,11 +5,21 @@
   padding: 2rem;
 }
 
+.pass-not-match {
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  text-align: center;
+  color: #de065f;
+}
+
 .login h3 {
   display: block;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
   text-align: center;
   color: #ffffff;
+  transition: 0.5s all;
 }
 .login h3:hover {
   color: #de065f;
@@ -57,6 +67,7 @@
 }
 
 .actions {
+  margin-top: 1.5rem;
   text-align: center;
 }
 
