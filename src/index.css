@@ -1,7 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: sans-serif;
+  background: #fff;
+  background-color: rgb(50, 50, 50);
 }
 
 body {
   margin: 0;
+}
+
+main {
+  margin-top: 6rem;
 }
