@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import Login from './components/Login/Login';
-import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
+import Posts from './components/Posts/Posts';
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,10 +18,10 @@ const App: React.FC = () => {
 
   return (
     <React.Fragment>
-      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+      <MainHeader isLoggedIn={isLoggedIn} onLogout={logoutHandler} />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home />}
+        {isLoggedIn && <Posts />}
       </main>
     </React.Fragment>
   );

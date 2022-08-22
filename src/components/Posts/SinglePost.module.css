@@ -1,0 +1,13 @@
+.single-post {
+  max-width: 40rem;
+  padding: 2rem 3rem;
+  margin: 1rem auto;
+  text-align: start;
+  color: #fff;
+  /* background: rgb(207, 110, 110); */
+  background: #372c31;
+}
+
+.single-post h2 {
+  margin-top: 0;
+}

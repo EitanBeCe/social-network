@@ -6,17 +6,17 @@ import classes from './MainHeader.module.css';
 
 interface Props {
   onLogout: () => void;
-  isAuthenticated: boolean;
+  isLoggedIn: boolean;
 }
 
-const MainHeader: React.FC<Props> = ({ onLogout, isAuthenticated }) => {
+const MainHeader: React.FC<Props> = ({ onLogout, isLoggedIn }) => {
   return (
     <header className={classes['main-header']}>
       <img src={logo} alt="logo" />
 
-      <h2>Here you are! Get in!</h2>
+      {!isLoggedIn && <h2>Here you are! Get in!</h2>}
 
-      <Navigation isLoggedIn={isAuthenticated} onLogout={onLogout} />
+      <Navigation isLoggedIn={isLoggedIn} onLogout={onLogout} />
     </header>
   );
 };
