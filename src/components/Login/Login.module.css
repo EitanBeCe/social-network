@@ -7,10 +7,11 @@
 
 .pass-not-match {
   display: block;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   margin-bottom: 0;
   text-align: center;
-  color: #de065f;
+  color: #d482a4;
+  transition: 0.5s all;
 }
 
 .login h3 {

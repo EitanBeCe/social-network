@@ -2,10 +2,12 @@ import React from 'react';
 
 import classes from './Navigation.module.css';
 
-const Navigation: React.FC<{
+interface Props {
   isLoggedIn: boolean;
   onLogout: () => void;
-}> = ({ isLoggedIn, onLogout }) => {
+}
+
+const Navigation: React.FC<Props> = ({ isLoggedIn, onLogout }) => {
   return (
     <nav className={classes.nav}>
       <ul>
