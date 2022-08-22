@@ -5,7 +5,8 @@
   text-align: start;
   color: #fff;
   /* background: rgb(207, 110, 110); */
-  background: #372c31;
+
+  background: rgb(55, 44, 49);
 }
 
 .single-post h2 {
@@ -23,4 +24,11 @@
   height: 2rem;
   padding: 0.3rem 2rem;
   background: #372c31;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
 }
