@@ -11,3 +11,16 @@
 .single-post h2 {
   margin-top: 0;
 }
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  height: 2rem;
+  padding: 0.3rem 2rem;
+  background: #372c31;
+}

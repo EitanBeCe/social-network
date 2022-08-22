@@ -6,3 +6,13 @@
   text-align: center;
   color: #fff;
 }
+
+.post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  height: 3rem;
+}

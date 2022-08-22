@@ -1,3 +1,4 @@
+import Button from '../UI/Button/Button';
 import Card from '../UI/Card/Card';
 import classes from './Posts.module.css';
 import SinglePost from './SinglePost';
@@ -16,9 +17,16 @@ const DUMMY_POSTS = [
 ];
 
 const Posts: React.FC = () => {
+  const dummy = () => {};
   return (
     <Card className={classes.posts}>
-      <h1>Posts</h1>
+      <div className={classes['post-head']}>
+        <h1>Posts</h1>
+        <Button onClick={dummy} className={classes.btn}>
+          Add Post
+        </Button>
+      </div>
+
       {DUMMY_POSTS.map((p, i) => (
         <SinglePost key={i} title={p.title} text={p.text} />
       ))}
