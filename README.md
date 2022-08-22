@@ -1,3 +1,15 @@
+- Simple social app:
+
+1. Login screen with fields: Email and Password; and button to open registration screen
+2. Registration screen with fields: Email, Password, Password repeat, Back button. (fields must be verified)
+3. Main User screen (Posts View), with logout button, Posts View (list of posts) screen must include possibility to add new post and to edit
+   and remove existing posts
+4. Post View Screen (title, text, comments (count, list, new comment form)
+5. Adding a new Post Screen (title, text, submit button)
+6. Comments Screen (in Post View Screen), (remove, edit, add new)
+7. Edit Comment Screen
+8. Add & Edit Post Screen
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

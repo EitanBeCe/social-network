@@ -12,6 +12,8 @@ interface Props {
 }
 
 const Login: React.FC<Props> = ({ onLogin }) => {
+  // ******* States *******
+
   // Login mode - states
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
@@ -21,6 +23,8 @@ const Login: React.FC<Props> = ({ onLogin }) => {
   const [isRegistered, setIsRegistered] = useState(true);
   const [enteredPass2, setEnteredPass2] = useState('');
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+
+  // ********* Login mode *********
 
   // Login mode - email validation
   const emailChangeHandler = (event: React.FormEvent<HTMLInputElement>) => {
@@ -58,7 +62,7 @@ const Login: React.FC<Props> = ({ onLogin }) => {
     onLogin(enteredEmail, enteredPassword);
   };
 
-  // ********** "Sign up mode" ************
+  // ********** Sign up mode ************
 
   // Entering Sign up mode
   const registerHandler = () => {
@@ -144,6 +148,12 @@ const Login: React.FC<Props> = ({ onLogin }) => {
 
         {!isRegistered && (
           <div className={classes.actions}>
+            <Button
+              className={classes.btn}
+              onClick={() => setIsRegistered(true)}
+            >
+              ⬅ Go Back
+            </Button>
             <Button
               type="submit"
               className={classes.btn}

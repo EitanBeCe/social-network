@@ -20,6 +20,8 @@
   border-radius: 30%;
 }
 
-.main-header h1 {
+.main-header h2 {
   color: white;
+  font-size: 4vw;
+  transform: translateX(-13%);
 }

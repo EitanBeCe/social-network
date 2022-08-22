@@ -1,10 +1,10 @@
 import classes from './Button.module.css';
 
 interface Props {
-  type: 'submit' | 'button';
+  type?: 'submit' | 'button';
   className: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
-  disabled: boolean;
+  disabled?: boolean;
   children: React.ReactNode;
 }
 

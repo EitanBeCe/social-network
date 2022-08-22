@@ -14,7 +14,7 @@ const MainHeader: React.FC<Props> = ({ onLogout, isAuthenticated }) => {
     <header className={classes['main-header']}>
       <img src={logo} alt="logo" />
 
-      <h1>Here you are! Get in!</h1>
+      <h2>Here you are! Get in!</h2>
 
       <Navigation isLoggedIn={isAuthenticated} onLogout={onLogout} />
     </header>
