@@ -7,9 +7,13 @@ const PostsContext = React.createContext({
   posts: DUMMY_POSTS,
   deletePostHandler: (id: Id) => {},
   modalOpen: false,
-  onOpenModal: () => {},
-  onCloseModal: () => {},
+  handleOpenModal: () => {},
+  handleCloseModal: () => {},
   updatePosts: (id: Id, updatedPost: Post) => {},
+  addMode: false,
+  openAddMode: () => {},
+  closeAddMode: () => {},
+  addPostHandler: (id: Id, title: string, text: string) => {},
 });
 
 interface Props {
@@ -30,9 +34,21 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
   };
 
   // ********* MODAL **********
-  const onOpenModal = () => setModalOpen(true);
 
-  const onCloseModal = () => setModalOpen(false);
+  const handleOpenModal = () => setModalOpen(true);
+
+  const handleCloseModal = () => setModalOpen(false);
+
+  // ******** ADD post *********
+
+  const [addMode, setAddMode] = useState(false);
+  const openAddMode = () => setAddMode(true);
+  const closeAddMode = () => setAddMode(false);
+
+  const addPostHandler = (id: Id, title: string, text: string) => {
+    setPosts((prev) => [{ id, title, text }, ...prev]);
+  };
+  // {id: uuidv4(), title, text}
 
   // ******* EDIT post *********
   const updatePosts = (id: Id, updatedPost: Post) => {
@@ -42,12 +58,20 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
   return (
     <PostsContext.Provider
       value={{
-        deletePostHandler: deletePostHandler,
-        posts: posts,
-        modalOpen: modalOpen,
-        onOpenModal: onOpenModal,
-        onCloseModal: onCloseModal,
-        updatePosts: updatePosts,
+        posts,
+
+        deletePostHandler,
+
+        modalOpen,
+        handleOpenModal,
+        handleCloseModal,
+
+        updatePosts,
+
+        addMode,
+        openAddMode,
+        closeAddMode,
+        addPostHandler,
       }}
     >
       {children}

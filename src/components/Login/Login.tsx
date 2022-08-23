@@ -140,7 +140,6 @@ const Login: React.FC<Props> = ({ onLogin }) => {
               type="submit"
               className={classes.btn}
               disabled={!formIsValid}
-              onClick={submitHandler}
             >
               Login
             </Button>

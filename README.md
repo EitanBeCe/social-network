@@ -10,6 +10,13 @@
 7. Edit Comment Screen
 8. Add & Edit Post Screen
 
+What was used:
+
+- TS interfaces and types
+- React - useContext, useState, useEffect
+- Removed modals dependencies?
+- firebase?
+
 Marks for myself for curr work
 
 1. If deleting posts from modal - it's removing the wrong post, always the last. MAYBE context will help

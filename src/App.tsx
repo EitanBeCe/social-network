@@ -1,24 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import Login from './components/Login/Login';
 import MainHeader from './components/MainHeader/MainHeader';
+import AddPost from './components/Posts/AddPost/AddPost';
 import Posts from './components/Posts/Posts';
 import AuthContext from './store/auth-context';
-import { PostsCtxProvider } from './store/posts-context';
+import PostsContext from './store/posts-context';
 
 const App: React.FC = () => {
-  const authCtx = useContext(AuthContext);
+  const { isLoggedIn, onLogout, onLogin } = useContext(AuthContext);
+  const { addMode, closeAddMode, posts } = useContext(PostsContext);
+
+  useEffect(() => {
+    closeAddMode();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [posts]);
 
   return (
     <>
-      <MainHeader isLoggedIn={authCtx.isLoggedIn} onLogout={authCtx.onLogout} />
+      <MainHeader isLoggedIn={isLoggedIn} onLogout={onLogout} />
       <main>
-        {!authCtx.isLoggedIn && <Login onLogin={authCtx.onLogin} />}
-        {authCtx.isLoggedIn && (
-          <PostsCtxProvider>
-            <Posts />
-          </PostsCtxProvider>
-        )}
+        {addMode && <AddPost />}
+        {/* Second option how to render AddPost */}
+        {/* {isLoggedIn && !addMode && <Posts />} */}
+        {!isLoggedIn && <Login onLogin={onLogin} />}
+        {isLoggedIn && <Posts />}
       </main>
     </>
   );

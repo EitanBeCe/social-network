@@ -1,10 +1,9 @@
 import classes from './SinglePost.module.css';
-// import ReactModal from 'react-modal';
 
 import Card from '../UI/Card/Card';
 import Button from '../UI/Button/Button';
 import { useContext, useEffect, useState } from 'react';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 
 import PostsContext from '../../store/posts-context';
 import EditPost from './EditPost/EditPost';
@@ -20,7 +19,8 @@ interface Props {
 }
 
 const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
-  const postsCtx = useContext(PostsContext);
+  const { handleOpenModal, handleCloseModal, modalOpen, deletePostHandler } =
+    useContext(PostsContext);
 
   // Entering Edit mode
   const [edit, setEdit] = useState(false);
@@ -34,27 +34,35 @@ const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
   if (edit) return <EditPost closeEditPost={closeEditPost} post={post} />;
 
   return (
-    <Card className={classes['single-post']}>
-      <h2>{post.title}</h2>
-      <div>{post.text}</div>
-      <div className={classes['post-footer']}>
-        <h5>LIKE</h5>
-        <Button onClick={openEditPost} className={classes.btn}>
-          Edit
-        </Button>
-        <Button
-          onClick={postsCtx.deletePostHandler.bind(null, id)} // postsCtx.deletePostHandler.bind(null, id)  or   deletePost
-          className={classes.btn}
-        >
-          Delete
-        </Button>
-      </div>
+    <>
+      <Card className={classes['single-post']}>
+        <h2>{post.title}</h2>
+        <div>{post.text}</div>
+        <div className={classes['post-footer']}>
+          <span className={classes.heart}></span>
+          <span className={classes['hearts-amount']}></span>
+          <Button onClick={openEditPost} className={classes.btn}>
+            Edit
+          </Button>
+          <Button
+            onClick={deletePostHandler.bind(null, id)} // deletePostHandler.bind(null, id)  or   deletePost    or     handleOpenModal
+            className={classes.btn}
+          >
+            Delete
+          </Button>
+        </div>
+      </Card>
+    </>
+  );
+};
 
-      {/* Deleting the wrong post, if doing it from modal */}
-      <ReactModal
+export default SinglePost;
+
+// Deleting the wrong post, if doing it from modal
+/* <ReactModal
         closeTimeoutMS={500}
-        isOpen={postsCtx.modalOpen}
-        onRequestClose={postsCtx.onCloseModal} // To close on overlay
+        isOpen={modalOpen}
+        onRequestClose={handleCloseModal} // To close on overlay
         // onAfterClose={postsCtx.deletePostHandler.bind(null, id)} // It removes all the posts
         contentLabel="Modal"
         ariaHideApp={false}
@@ -85,13 +93,8 @@ const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
           >
             Delete
           </Button>
-          <Button onClick={postsCtx.onCloseModal} className={classes.btn}>
+          <Button onClick={handleCloseModal} className={classes.btn}>
             Close
           </Button>
         </div>
-      </ReactModal>
-    </Card>
-  );
-};
-
-export default SinglePost;
+      </ReactModal> */
