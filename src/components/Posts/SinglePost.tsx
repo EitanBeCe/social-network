@@ -19,8 +19,15 @@ interface Props {
 }
 
 const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
-  const { handleOpenModal, handleCloseModal, modalOpen, deletePostHandler } =
-    useContext(PostsContext);
+  const {
+    handleOpenModal,
+    handleCloseModal,
+    modalOpen,
+    deletePostHandler,
+    like,
+    likeActive,
+    likeHandler,
+  } = useContext(PostsContext);
 
   // Entering Edit mode
   const [edit, setEdit] = useState(false);
@@ -39,8 +46,17 @@ const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
         <h2>{post.title}</h2>
         <div>{post.text}</div>
         <div className={classes['post-footer']}>
-          <span className={classes.heart}></span>
-          <span className={classes['hearts-amount']}></span>
+          <div className={classes.content}>
+            <button
+              className={
+                likeActive
+                  ? `${classes.heart} ${classes['heart-active']}`
+                  : classes.heart
+              }
+              onClick={likeHandler.bind(null, id)}
+            />
+            <span className={classes['hearts-amount']}>{like}</span>
+          </div>
           <Button onClick={openEditPost} className={classes.btn}>
             Edit
           </Button>

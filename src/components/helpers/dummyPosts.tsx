@@ -2,7 +2,7 @@ export const DUMMY_POSTS = [
   {
     title: 'Post 1',
     id: 'p1',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dolorum ipsam doloremque incidunt architecto repellendus, sit reprehenderit fuga nam. Voluptate amet quasi repudiandae nisi sapiente dolore veniam consequatur, iusto expedita. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dolorum ipsam doloremque incidunt architecto repellendus, sit reprehenderit fuga nam. Voluptate amet quasi repudiandae nisi sapiente dolore veniam consequatur, iusto expedita. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dolorum ipsam doloremque incidunt architecto repellendus, sit reprehenderit fuga nam. Voluptate amet quasi repudiandae nisi sapiente dolore veniam consequatur, iusto expedita.',
+    text: 'MICHOEL IS THE BEST!!!!',
   },
   {
     title: 'Post 2',
