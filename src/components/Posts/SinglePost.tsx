@@ -3,30 +3,43 @@ import classes from './SinglePost.module.css';
 
 import Card from '../UI/Card/Card';
 import Button from '../UI/Button/Button';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 
 import PostsContext from '../../store/posts-context';
+import EditPost from './EditPost/EditPost';
+
+import { Post } from '../models/postType';
 
 interface Props {
-  title: string;
-  text: string;
   deletePost: () => void;
   // modalOpen: boolean;
   // onOpenModal: () => void;
   id: string;
+  post: Post;
 }
 
-const SinglePost: React.FC<Props> = ({ text, title, deletePost, id }) => {
+const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
   const postsCtx = useContext(PostsContext);
+
+  // Entering Edit mode
+  const [edit, setEdit] = useState(false);
+  const openEditPost = () => setEdit(true);
+  const closeEditPost = () => setEdit(false);
+
+  useEffect(() => {
+    closeEditPost();
+  }, [post]);
+
+  if (edit) return <EditPost closeEditPost={closeEditPost} post={post} />;
 
   return (
     <Card className={classes['single-post']}>
-      <h2>{title}</h2>
-      <div>{text}</div>
+      <h2>{post.title}</h2>
+      <div>{post.text}</div>
       <div className={classes['post-footer']}>
         <h5>LIKE</h5>
-        <Button onClick={postsCtx.openEditPost} className={classes.btn}>
+        <Button onClick={openEditPost} className={classes.btn}>
           Edit
         </Button>
         <Button

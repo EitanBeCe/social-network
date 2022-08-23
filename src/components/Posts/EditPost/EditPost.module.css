@@ -1,11 +1,10 @@
 .edit {
-  width: 90%;
   max-width: 40rem;
   margin: 2rem auto;
   padding: 2rem;
 }
 
-.login h3 {
+.edit h3 {
   display: block;
   margin-top: 2rem;
   margin-bottom: 0;
@@ -13,7 +12,7 @@
   color: #ffffff;
   transition: 0.5s all;
 }
-.login h3:hover {
+.edit h3:hover {
   color: #de065f;
   cursor: pointer;
 }
@@ -26,6 +25,7 @@
 }
 
 .control label,
+.control textarea,
 .control input {
   display: block;
 }
@@ -37,6 +37,7 @@
   margin-bottom: 0.5rem;
 }
 
+.control textarea,
 .control input {
   flex: 3;
   font: inherit;
@@ -47,10 +48,14 @@
   border: 1px solid #ccc;
 }
 
+.control textarea:focus,
 .control input:focus {
   outline: none;
   border-color: #4f005f;
-  background: #d587a7;
+  /* background: #d587a7; */
+}
+.control textarea {
+  width: auto;
 }
 
 .control.invalid input {

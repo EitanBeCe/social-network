@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { DUMMY_POSTS } from '../components/helpers/dummyPosts';
+import { Id } from '../components/models/idType';
+import { Post } from '../components/models/postType';
 
 const PostsContext = React.createContext({
   posts: DUMMY_POSTS,
-  deletePostHandler: (id: number | string) => {},
+  deletePostHandler: (id: Id) => {},
   modalOpen: false,
   onOpenModal: () => {},
   onCloseModal: () => {},
-  edit: false,
-  openEditPost: () => {},
-  closeEditPost: () => {},
+  updatePosts: (id: Id, updatedPost: Post) => {},
 });
 
 interface Props {
@@ -21,31 +21,22 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
   const [posts, setPosts] = useState(DUMMY_POSTS);
   const [modalOpen, setModalOpen] = useState(false); // Modal if user pressed 'Delete post'
 
-  // *************** WHATS id type now after firebase?
-  const deletePostHandler = (id: number | string) => {
+  // ****** WHATS id type now after firebase?
+  const deletePostHandler = (id: Id) => {
     setPosts((prev) => prev.filter((post) => post.id !== id));
     console.log(id);
 
     setModalOpen(false);
   };
 
-  // ********* MODAL
+  // ********* MODAL **********
+  const onOpenModal = () => setModalOpen(true);
 
-  const onOpenModal = () => {
-    setModalOpen(true);
-  };
-  const onCloseModal = () => {
-    setModalOpen(false);
-  };
+  const onCloseModal = () => setModalOpen(false);
 
-  // ********* EDIT POST
-  // Entering Edit mode
-  const [edit, setEdit] = useState(false);
-  const openEditPost = () => {
-    setEdit(true);
-  };
-  const closeEditPost = () => {
-    setEdit(false);
+  // ******* EDIT post *********
+  const updatePosts = (id: Id, updatedPost: Post) => {
+    setPosts(posts.map((p) => (p.id === id ? updatedPost : p)));
   };
 
   return (
@@ -56,9 +47,7 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
         modalOpen: modalOpen,
         onOpenModal: onOpenModal,
         onCloseModal: onCloseModal,
-        edit: edit,
-        openEditPost: openEditPost,
-        closeEditPost: closeEditPost,
+        updatePosts: updatePosts,
       }}
     >
       {children}
