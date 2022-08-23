@@ -1,19 +1,18 @@
 import classes from './SinglePost.module.css';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 
 import Card from '../UI/Card/Card';
 import Button from '../UI/Button/Button';
+import { useState } from 'react';
+import EditPost from './EditPost/EditPost';
 
 interface Props {
   title: string;
   text: string;
-  id: number | string;
   deletePost: () => void;
   modalOpen: boolean;
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-
-// **************** DEL post
 
 const SinglePost: React.FC<Props> = ({
   text,
@@ -22,15 +21,25 @@ const SinglePost: React.FC<Props> = ({
   modalOpen,
   setModalOpen,
 }) => {
-  const openModalHandler = () => {
-    setModalOpen(true);
-  }; // Need to lift up
-  const closeModalHandler = () => {
-    setModalOpen(false);
+  // Entering Edit mode
+  const [edit, setEdit] = useState(false);
+
+  // Deleting the wrong post, if doing it from modal
+  // State is in Posts. MAYBE context will help
+  // const openModalHandler = () => {
+  //   setModalOpen(true);
+  // }; // Need to lift up
+  // const closeModalHandler = () => {
+  //   setModalOpen(false);
+  // };
+
+  const editPostHandler = () => {
+    setEdit(true);
   };
 
-  // *************** RIGHT HERE)))
-  const editPostHandler = () => {};
+  // ********** RENDERING ***********
+
+  if (edit) return <EditPost />;
 
   return (
     <Card className={classes['single-post']}>
@@ -41,17 +50,19 @@ const SinglePost: React.FC<Props> = ({
         <Button onClick={editPostHandler} className={classes.btn}>
           Edit
         </Button>
-        <Button onClick={openModalHandler} className={classes.btn}>
+        <Button onClick={deletePost} className={classes.btn}>
           Delete
         </Button>
       </div>
 
-      <ReactModal
+      {/* Deleting the wrong post, if doing it from modal */}
+      {/* <ReactModal
         closeTimeoutMS={500}
         isOpen={modalOpen}
         onRequestClose={closeModalHandler} // To close on overlay
         contentLabel="Modal"
-        ariaHideApp={true}
+        ariaHideApp={false}
+        id={id}
         style={{
           overlay: { backgroundColor: 'rgb(0, 0, 0, 0.4)' },
           content: {
@@ -78,7 +89,7 @@ const SinglePost: React.FC<Props> = ({
             Close
           </Button>
         </div>
-      </ReactModal>
+      </ReactModal> */}
     </Card>
   );
 };

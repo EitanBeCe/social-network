@@ -10,6 +10,10 @@
 7. Edit Comment Screen
 8. Add & Edit Post Screen
 
+Marks for myself for curr work
+
+1. If deleting posts from modal - it's removing the wrong post, always the last. MAYBE context will help
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

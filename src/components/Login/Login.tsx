@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import ButtonSmall from '../UI/Button copy/ButtonSmall';
 
 // const _emailValid =
 //   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; // Instead .includes('@')
@@ -148,20 +149,20 @@ const Login: React.FC<Props> = ({ onLogin }) => {
 
         {!isRegistered && (
           <div className={classes.actions}>
-            <Button
+            <ButtonSmall
               className={classes.btn}
               onClick={() => setIsRegistered(true)}
             >
-              ⬅ Go Back
-            </Button>
-            <Button
+              Go Back
+            </ButtonSmall>
+            <ButtonSmall
               type="submit"
               className={classes.btn}
               disabled={!formIsValid || !passwordsMatch}
               onClick={submitHandler}
             >
               Sign up
-            </Button>
+            </ButtonSmall>
           </div>
         )}
       </form>

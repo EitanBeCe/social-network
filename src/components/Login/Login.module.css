@@ -74,9 +74,29 @@
   text-align: center;
 }
 
+/* Why all btn classes here do not work?? They shoul be stronger then basic ones, and its so in other components */
+/* .btn {
+  height: 2rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  padding: 0.5rem 0.9rem;
+} */
+
 @media (min-width: 768px) {
   .control {
     align-items: center;
     flex-direction: row;
   }
 }
+
+@media (max-width: 500px) {
+  .btn {
+    padding: 0.5rem 2rem;
+  }
+}
+/* 
+@media (max-width: 420px) {
+  .btn {
+    padding: 0.5rem 0.9rem;
+  }
+} */

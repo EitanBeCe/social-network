@@ -32,6 +32,7 @@ const Posts: React.FC = () => {
   // *************** WHATS id type now after firebase?
   const deletePostHandler = (id: number | string) => {
     setPosts((prev) => prev.filter((post) => post.id !== id));
+    console.log(id);
 
     setModalOpen(false);
   };
@@ -49,7 +50,6 @@ const Posts: React.FC = () => {
       {posts.map((p) => (
         <SinglePost
           key={p.id}
-          id={p.id}
           title={p.title}
           text={p.text}
           deletePost={deletePostHandler.bind(null, p.id)}
