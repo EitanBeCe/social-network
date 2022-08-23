@@ -1,41 +1,64 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { DUMMY_POSTS } from '../components/helpers/dummyPosts';
 
 const PostsContext = React.createContext({
-  isLoggedIn: false,
-  onLogout: () => {}, // for showing it in options when you print it
-  onLogin: (email: string, password: string) => {},
+  posts: DUMMY_POSTS,
+  deletePostHandler: (id: number | string) => {},
+  modalOpen: false,
+  onOpenModal: () => {},
+  onCloseModal: () => {},
+  edit: false,
+  openEditPost: () => {},
+  closeEditPost: () => {},
 });
 
 interface Props {
   children: React.ReactNode;
 }
 
-export const AuthContextProvider: React.FC<Props> = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
+  // List of posts
+  const [posts, setPosts] = useState(DUMMY_POSTS);
+  const [modalOpen, setModalOpen] = useState(false); // Modal if user pressed 'Delete post'
 
-  useEffect(() => {
-    const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
-    if (storedUserLoggedInInformation === '1') {
-      setIsLoggedIn(true);
-    }
-  }, []);
+  // *************** WHATS id type now after firebase?
+  const deletePostHandler = (id: number | string) => {
+    setPosts((prev) => prev.filter((post) => post.id !== id));
+    console.log(id);
 
-  const logoutHandler = () => {
-    localStorage.removeItem('isLoggedIn');
-    setIsLoggedIn(false);
+    setModalOpen(false);
   };
 
-  const loginHandler = () => {
-    localStorage.setItem('isLoggedIn', '1');
-    setIsLoggedIn(true);
+  // ********* MODAL
+
+  const onOpenModal = () => {
+    setModalOpen(true);
+  };
+  const onCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  // ********* EDIT POST
+  // Entering Edit mode
+  const [edit, setEdit] = useState(false);
+  const openEditPost = () => {
+    setEdit(true);
+  };
+  const closeEditPost = () => {
+    setEdit(false);
   };
 
   return (
     <PostsContext.Provider
       value={{
-        isLoggedIn: isLoggedIn,
-        onLogout: logoutHandler,
-        onLogin: loginHandler,
+        deletePostHandler: deletePostHandler,
+        posts: posts,
+        modalOpen: modalOpen,
+        onOpenModal: onOpenModal,
+        onCloseModal: onCloseModal,
+        edit: edit,
+        openEditPost: openEditPost,
+        closeEditPost: closeEditPost,
       }}
     >
       {children}

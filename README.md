@@ -13,6 +13,7 @@
 Marks for myself for curr work
 
 1. If deleting posts from modal - it's removing the wrong post, always the last. MAYBE context will help
+2. setModalOpen in posts-context - do not work
 
 # Getting Started with Create React App
 
