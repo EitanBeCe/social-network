@@ -11,10 +11,6 @@ const PostsContext = React.createContext({
   handleOpenModal: () => {},
   handleCloseModal: () => {},
 
-  like: 12,
-  likeActive: false,
-  likeHandler: (id: Id) => {},
-
   updatePosts: (id: Id, updatedPost: Post) => {},
 
   addMode: false,
@@ -46,21 +42,6 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
 
   const handleCloseModal = () => setModalOpen(false);
 
-  // ******** LIKES **********
-
-  const [like, setLike] = useState(12);
-  const [likeActive, setLikeActive] = useState(false);
-
-  const likeHandler = (id: Id) => {
-    if (likeActive) {
-      setLikeActive(false);
-      setLike((prev) => prev - 1);
-    } else {
-      setLikeActive(true);
-      setLike((prev) => prev + 1);
-    }
-  };
-
   // ******** ADD post *********
 
   const [addMode, setAddMode] = useState(false);
@@ -68,7 +49,7 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
   const closeAddMode = () => setAddMode(false);
 
   const addPostHandler = (id: Id, title: string, text: string) => {
-    setPosts((prev) => [{ id, title, text }, ...prev]);
+    setPosts((prev) => [{ id, title, text, likes: 0 }, ...prev]);
   };
   // {id: uuidv4(), title, text}
 
@@ -88,10 +69,6 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
         modalOpen,
         handleOpenModal,
         handleCloseModal,
-
-        like,
-        likeActive,
-        likeHandler,
 
         updatePosts,
 

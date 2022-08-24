@@ -1,5 +1,8 @@
+import { Id } from './idType';
+
 export type Post = {
-  id: string;
+  id: Id;
   title: string;
   text: string;
+  likes: number;
 };

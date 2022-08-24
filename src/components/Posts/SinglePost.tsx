@@ -9,6 +9,7 @@ import PostsContext from '../../store/posts-context';
 import EditPost from './EditPost/EditPost';
 
 import { Post } from '../models/postType';
+import { Id } from '../models/idType';
 
 interface Props {
   deletePost: () => void;
@@ -19,15 +20,24 @@ interface Props {
 }
 
 const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
-  const {
-    handleOpenModal,
-    handleCloseModal,
-    modalOpen,
-    deletePostHandler,
-    like,
-    likeActive,
-    likeHandler,
-  } = useContext(PostsContext);
+  const { handleOpenModal, handleCloseModal, modalOpen, deletePostHandler } =
+    useContext(PostsContext);
+
+  // ******** LIKES **********
+
+  const [like, setLike] = useState(12);
+  const [likeActive, setLikeActive] = useState(false);
+
+  const likeHandler = () => {
+    // LIKES AND ID
+    if (likeActive) {
+      setLikeActive(false);
+      setLike((prev) => prev - 1);
+    } else {
+      setLikeActive(true);
+      setLike((prev) => prev + 1);
+    }
+  };
 
   // Entering Edit mode
   const [edit, setEdit] = useState(false);
