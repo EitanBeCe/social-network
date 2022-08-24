@@ -9,7 +9,6 @@ import SinglePost from './SinglePost';
 
 const Posts: React.FC = () => {
   const {
-    deletePostHandler,
     posts,
     openAddMode,
     // handleCloseModal,
@@ -28,12 +27,7 @@ const Posts: React.FC = () => {
         </div>
 
         {posts.map((p) => (
-          <SinglePost
-            key={p.id}
-            deletePost={deletePostHandler.bind(null, p.id)}
-            id={p.id}
-            post={p}
-          />
+          <SinglePost key={p.id} id={p.id} post={p} />
         ))}
       </Card>
     </>

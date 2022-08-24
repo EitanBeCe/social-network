@@ -5,13 +5,12 @@ import { Post } from '../components/models/postType';
 
 const PostsContext = React.createContext({
   posts: DUMMY_POSTS,
-  deletePostHandler: (id: Id) => {},
 
-  modalOpen: false,
-  handleOpenModal: () => {},
-  handleCloseModal: () => {},
+  deletePost: (id: Id) => {},
 
   updatePosts: (id: Id, updatedPost: Post) => {},
+
+  updateLikes: (id: Id, updatedLike: number) => {},
 
   addMode: false,
   openAddMode: () => {},
@@ -24,25 +23,15 @@ interface Props {
 }
 
 export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
-  // List of posts
-  const [posts, setPosts] = useState(DUMMY_POSTS);
-  const [modalOpen, setModalOpen] = useState(false); // Modal opens if user pressed 'Delete post'
+  const [posts, setPosts] = useState(DUMMY_POSTS); // List of all posts
 
-  // ****** WHATS id type now after firebase?
-  const deletePostHandler = (id: Id) => {
+  // ********* MODAL for deleting post ********** //
+
+  const deletePost = (id: Id) => {
     setPosts((prev) => prev.filter((post) => post.id !== id));
-    console.log(id);
-
-    setModalOpen(false);
   };
 
-  // ********* MODAL **********
-
-  const handleOpenModal = () => setModalOpen(true);
-
-  const handleCloseModal = () => setModalOpen(false);
-
-  // ******** ADD post *********
+  // ******** ADD post ********* //
 
   const [addMode, setAddMode] = useState(false);
   const openAddMode = () => setAddMode(true);
@@ -51,12 +40,19 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
   const addPostHandler = (id: Id, title: string, text: string) => {
     setPosts((prev) => [{ id, title, text, likes: 0 }, ...prev]);
   };
-  // {id: uuidv4(), title, text}
 
-  // ******* EDIT post *********
+  // ******* EDIT post ********* //
 
   const updatePosts = (id: Id, updatedPost: Post) => {
     setPosts(posts.map((p) => (p.id === id ? updatedPost : p)));
+  };
+
+  // ******* LIKES change ********* //
+
+  const updateLikes = (id: Id, updatedLike: number) => {
+    setPosts((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, likes: updatedLike } : p))
+    );
   };
 
   return (
@@ -64,13 +60,15 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
       value={{
         posts,
 
-        deletePostHandler,
+        deletePost,
 
-        modalOpen,
-        handleOpenModal,
-        handleCloseModal,
+        // modalOpen,
+        // handleOpenModal,
+        // handleCloseModal,
 
         updatePosts,
+
+        updateLikes,
 
         addMode,
         openAddMode,

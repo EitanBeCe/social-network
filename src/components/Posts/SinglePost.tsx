@@ -1,35 +1,38 @@
 import classes from './SinglePost.module.css';
-
-import Card from '../UI/Card/Card';
-import Button from '../UI/Button/Button';
 import { useContext, useEffect, useState } from 'react';
-// import ReactModal from 'react-modal';
+import ReactModal from 'react-modal';
 
 import PostsContext from '../../store/posts-context';
 import EditPost from './EditPost/EditPost';
+import Card from '../UI/Card/Card';
+import Button from '../UI/Button/Button';
 
 import { Post } from '../models/postType';
 import { Id } from '../models/idType';
 
 interface Props {
-  deletePost: () => void;
+  // deletePost: () => void;
   // modalOpen: boolean;
   // onOpenModal: () => void;
   id: string;
   post: Post;
 }
 
-const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
-  const { handleOpenModal, handleCloseModal, modalOpen, deletePostHandler } =
-    useContext(PostsContext);
+const SinglePost: React.FC<Props> = ({ id, post }) => {
+  const {
+    // handleOpenModal,
+    // handleCloseModal,
+    // modalOpen,
+    deletePost,
+    updateLikes,
+  } = useContext(PostsContext);
 
   // ******** LIKES **********
 
-  const [like, setLike] = useState(12);
+  const [like, setLike] = useState(post.likes);
   const [likeActive, setLikeActive] = useState(false);
 
   const likeHandler = () => {
-    // LIKES AND ID
     if (likeActive) {
       setLikeActive(false);
       setLike((prev) => prev - 1);
@@ -39,7 +42,21 @@ const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
     }
   };
 
-  // Entering Edit mode
+  useEffect(() => {
+    updateLikes(id, like);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [like]);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
+
+  const deletePostHandler = (id: Id) => {
+    deletePost(id);
+  };
+
+  // ******* EDIT post ********
+
   const [edit, setEdit] = useState(false);
   const openEditPost = () => setEdit(true);
   const closeEditPost = () => setEdit(false);
@@ -71,21 +88,15 @@ const SinglePost: React.FC<Props> = ({ deletePost, id, post }) => {
             Edit
           </Button>
           <Button
-            onClick={deletePostHandler.bind(null, id)} // deletePostHandler.bind(null, id)  or   deletePost    or     handleOpenModal
+            onClick={handleOpenModal} // deletePostHandler.bind(null, id)  or   deletePost    or     handleOpenModal
             className={classes.btn}
           >
             Delete
           </Button>
         </div>
       </Card>
-    </>
-  );
-};
 
-export default SinglePost;
-
-// Deleting the wrong post, if doing it from modal
-/* <ReactModal
+      <ReactModal
         closeTimeoutMS={500}
         isOpen={modalOpen}
         onRequestClose={handleCloseModal} // To close on overlay
@@ -109,12 +120,9 @@ export default SinglePost;
         }}
       >
         <h2>Are you sure you want to delete the post?</h2>
-
         <div className={classes['modal-footer']}>
           <Button
-            onClick={deletePost}
-            //  onClick={postsCtx.deletePostHandler.bind(null, id)}
-            //   onClick={deletePost}
+            onClick={deletePostHandler.bind(null, id)}
             className={classes.btn}
           >
             Delete
@@ -123,4 +131,9 @@ export default SinglePost;
             Close
           </Button>
         </div>
-      </ReactModal> */
+      </ReactModal>
+    </>
+  );
+};
+
+export default SinglePost;

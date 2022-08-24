@@ -10,6 +10,8 @@
 7. Edit Comment Screen
 8. Add & Edit Post Screen
 
+- Modal on deleting posts
+
 What was used:
 
 - TS interfaces and types
@@ -21,6 +23,7 @@ Marks for myself for curr work
 
 1. If deleting posts from modal - it's removing the wrong post, always the last. MAYBE context will help
 2. setModalOpen in posts-context - do not work
+3. To do firebase? Routes? Auth status now in localStorage - ?
 
 # Getting Started with Create React App
 
