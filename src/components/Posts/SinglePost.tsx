@@ -11,21 +11,12 @@ import { Post } from '../../models/postType';
 import { Id } from '../../models/idType';
 
 interface Props {
-  // deletePost: () => void;
-  // modalOpen: boolean;
-  // onOpenModal: () => void;
   id: string;
   post: Post;
 }
 
 const SinglePost: React.FC<Props> = ({ id, post }) => {
-  const {
-    // handleOpenModal,
-    // handleCloseModal,
-    // modalOpen,
-    deletePost,
-    updateLikes,
-  } = useContext(PostsContext);
+  const { deletePost, updateLikes } = useContext(PostsContext);
 
   // ******** LIKES **********
 
@@ -47,7 +38,7 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [like]);
 
-  // ************ MODAL on deliting *************
+  // ************ MODAL for deliting post *************
 
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpenModal = () => setModalOpen(true);
@@ -89,10 +80,7 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
           <Button onClick={openEditPost} className={classes.btn}>
             Edit
           </Button>
-          <Button
-            onClick={handleOpenModal} // deletePostHandler.bind(null, id)  or   deletePost    or     handleOpenModal
-            className={classes.btn}
-          >
+          <Button onClick={handleOpenModal} className={classes.btn}>
             Delete
           </Button>
         </div>
@@ -102,7 +90,6 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
         closeTimeoutMS={500}
         isOpen={modalOpen}
         onRequestClose={handleCloseModal} // To close on overlay
-        // onAfterClose={postsCtx.deletePostHandler.bind(null, id)} // It removes all the posts
         contentLabel="Modal"
         ariaHideApp={false}
         style={{

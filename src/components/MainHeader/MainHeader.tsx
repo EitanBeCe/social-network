@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from '../../img/consum_nobg.svg';
+import classes from './MainHeader.module.css';
 
 import Navigation from './Navigation';
-import classes from './MainHeader.module.css';
 
 interface Props {
   onLogout: () => void;

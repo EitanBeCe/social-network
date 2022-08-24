@@ -3,18 +3,13 @@ import React, { useEffect, useState } from 'react';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
-import ButtonSmall from '../UI/Button copy/ButtonSmall';
-
-// const _emailValid =
-//   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; // Instead .includes('@')
+import ButtonSmall from '../UI/ButtonSmall/ButtonSmall';
 
 interface Props {
   onLogin: (email: string, password: string) => void;
 }
 
 const Login: React.FC<Props> = ({ onLogin }) => {
-  // ******* States *******
-
   // Login mode - states
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
@@ -27,7 +22,7 @@ const Login: React.FC<Props> = ({ onLogin }) => {
 
   // ********* Login mode *********
 
-  // Login mode - email validation
+  // Email validation
   const emailChangeHandler = (event: React.FormEvent<HTMLInputElement>) => {
     setEnteredEmail(event.currentTarget.value);
 
@@ -37,7 +32,7 @@ const Login: React.FC<Props> = ({ onLogin }) => {
     );
   };
 
-  // Login mode - password validation
+  // Password validation
   const passwordChangeHandler = (event: React.FormEvent<HTMLInputElement>) => {
     setEnteredPassword(event.currentTarget.value);
 
@@ -59,7 +54,7 @@ const Login: React.FC<Props> = ({ onLogin }) => {
       setPasswordsMatch(false);
       return;
     }
-    // Log in if pass match
+    // Log in if passwords match
     onLogin(enteredEmail, enteredPassword);
   };
 
@@ -70,17 +65,13 @@ const Login: React.FC<Props> = ({ onLogin }) => {
     setIsRegistered(false);
   };
 
-  // Sign up mode - 2 passwords validation
+  // 2 passwords validation
   const pass2ChangeHandler = (event: React.FormEvent<HTMLInputElement>) => {
     setEnteredPass2(event.currentTarget.value);
-    // setFormIsValid(
-    //   event.currentTarget.value.trim().length > 6 && enteredEmail.includes('@')
-    // );
   };
 
-  // Comparasion of passwords in 'Sign up mode'
+  // Comparasion of passwords in 'Sign up mode'. Alert user if passwords do not match
   useEffect(() => {
-    // Alert if not registered and passwords do not match
     if (enteredPassword !== enteredPass2) {
       setPasswordsMatch(false);
     }
