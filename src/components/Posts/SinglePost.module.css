@@ -55,6 +55,9 @@
   margin-top: -15px;
   font-size: 0.7rem;
 }
+.heart.heart-already-active {
+  background-position: right;
+}
 .heart.heart-active {
   animation: animate 0.8s steps(28) 1;
   background-position: right;
