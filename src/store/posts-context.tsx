@@ -26,7 +26,7 @@ interface Props {
 export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
   // List of posts
   const [posts, setPosts] = useState(DUMMY_POSTS);
-  const [modalOpen, setModalOpen] = useState(false); // Modal if user pressed 'Delete post'
+  const [modalOpen, setModalOpen] = useState(false); // Modal opens if user pressed 'Delete post'
 
   // ****** WHATS id type now after firebase?
   const deletePostHandler = (id: Id) => {
