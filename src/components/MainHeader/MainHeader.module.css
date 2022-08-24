@@ -12,6 +12,7 @@
   padding: 0 2rem;
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
+  z-index: 100;
 }
 
 .main-header img {
@@ -24,4 +25,10 @@
   color: white;
   font-size: 4vw;
   transform: translateX(-13%);
+}
+
+@media (min-width: 800px) {
+  .main-header h2 {
+    font-size: 2rem;
+  }
 }

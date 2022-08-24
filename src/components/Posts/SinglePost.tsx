@@ -7,8 +7,8 @@ import EditPost from './EditPost/EditPost';
 import Card from '../UI/Card/Card';
 import Button from '../UI/Button/Button';
 
-import { Post } from '../models/postType';
-import { Id } from '../models/idType';
+import { Post } from '../../models/postType';
+import { Id } from '../../models/idType';
 
 interface Props {
   // deletePost: () => void;
@@ -46,6 +46,8 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
     updateLikes(id, like);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [like]);
+
+  // ************ MODAL on deliting *************
 
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpenModal = () => setModalOpen(true);

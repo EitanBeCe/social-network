@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DUMMY_POSTS } from '../components/helpers/dummyPosts';
-import { Id } from '../components/models/idType';
-import { Post } from '../components/models/postType';
+import { Id } from '../models/idType';
+import { Post } from '../models/postType';
 
 const PostsContext = React.createContext({
   posts: DUMMY_POSTS,

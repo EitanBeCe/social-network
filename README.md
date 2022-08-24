@@ -12,18 +12,20 @@
 
 - Modal on deleting posts
 
-What was used:
+What was used/done:
 
 - TS interfaces and types
 - React - useContext, useState, useEffect
-- Removed modals dependencies?
+- ReactModal
+- localStorage
+- Responsive template
+
 - firebase?
 
 Marks for myself for curr work
 
-1. If deleting posts from modal - it's removing the wrong post, always the last. MAYBE context will help
-2. setModalOpen in posts-context - do not work
-3. To do firebase? Routes? Auth status now in localStorage - ?
+1. To do comments and comment edit?
+2. To do firebase (initial posts are heardcoded)? Routes (now everything on one link)? Auth status now in localStorage (Move to firebase?)
 
 # Getting Started with Create React App
 
