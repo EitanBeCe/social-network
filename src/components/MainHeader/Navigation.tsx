@@ -1,5 +1,4 @@
 import React from 'react';
-
 import classes from './Navigation.module.css';
 
 interface Props {
@@ -11,7 +10,7 @@ const Navigation: React.FC<Props> = ({ isLoggedIn, onLogout }) => {
   return (
     <nav className={classes.nav}>
       <ul>
-        {/* For other menu links */}
+        {/* Place for other menu links */}
         {isLoggedIn && (
           <li>
             <button onClick={onLogout}>Logout</button>

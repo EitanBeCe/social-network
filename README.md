@@ -25,7 +25,9 @@ What was used/done:
 Marks for myself for curr work
 
 1. To do comments and comment edit?
-2. To do firebase (initial posts are heardcoded)? Routes (now everything on one link)? Auth status now in localStorage (Move to firebase?)
+2. AUTH pass with context!!!
+3. Likes fix
+4. To do firebase (initial posts are heardcoded)? Routes (now everything on one link)? Auth status now in localStorage (Move to firebase?)
 
 # Getting Started with Create React App
 

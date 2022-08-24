@@ -1,11 +1,11 @@
-import classes from './SinglePost.module.css';
 import { useContext, useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
+import Button from '../UI/Button/Button';
+import classes from './SinglePost.module.css';
 
 import PostsContext from '../../store/posts-context';
 import EditPost from './EditPost/EditPost';
 import Card from '../UI/Card/Card';
-import Button from '../UI/Button/Button';
 
 import { Post } from '../../models/postType';
 import { Id } from '../../models/idType';

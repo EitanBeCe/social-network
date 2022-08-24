@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import MainHeader from './components/MainHeader/MainHeader';
 import AddPost from './components/Posts/AddPost/AddPost';
 import Posts from './components/Posts/Posts';
+
 import AuthContext from './store/auth-context';
 import PostsContext from './store/posts-context';
 

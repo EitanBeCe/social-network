@@ -1,16 +1,12 @@
 import { useContext, useState } from 'react';
 import PostsContext from '../../../store/posts-context';
+
 import Button from '../../UI/Button/Button';
 import Card from '../../UI/Card/Card';
 import classes from './AddPost.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
-interface Props {
-  // closeEditPost: () => void;
-  // post: Post;
-}
-
-const AddPost: React.FC<Props> = () => {
+const AddPost: React.FC = () => {
   const { closeAddMode, addPostHandler } = useContext(PostsContext);
 
   // States of user inputs of edidting post

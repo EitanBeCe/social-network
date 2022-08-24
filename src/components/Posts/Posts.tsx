@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-// import { Modal } from 'react-bootstrap';
 import PostsContext from '../../store/posts-context';
 
 import Button from '../UI/Button/Button';
@@ -8,13 +7,7 @@ import classes from './Posts.module.css';
 import SinglePost from './SinglePost';
 
 const Posts: React.FC = () => {
-  const {
-    posts,
-    openAddMode,
-    // handleCloseModal,
-    // modalOpen,
-    // handleOpenModal,
-  } = useContext(PostsContext);
+  const { posts, openAddMode } = useContext(PostsContext);
 
   return (
     <>

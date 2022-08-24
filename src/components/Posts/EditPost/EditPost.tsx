@@ -1,9 +1,11 @@
 import { useContext, useState } from 'react';
 import PostsContext from '../../../store/posts-context';
-import { Post } from '../../../models/postType';
+
 import Button from '../../UI/Button/Button';
 import Card from '../../UI/Card/Card';
 import classes from './EditPost.module.css';
+
+import { Post } from '../../../models/postType';
 
 interface Props {
   closeEditPost: () => void;

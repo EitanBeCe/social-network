@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const AuthContext = React.createContext({
   isLoggedIn: false,
-  onLogout: () => {}, // for showing it in options when you print it
+  onLogout: () => {}, // For autocompletion
   onLogin: (email: string, password: string) => {},
 });
 
