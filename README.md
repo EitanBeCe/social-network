@@ -7,6 +7,8 @@ Simple social App on React and TypeScript:
 5. Possibility to put likes on posts
 6. Responsive template from 320px
 
+Made totally by myself following these tasks, not through course etc.
+
 ![Alt text](/src/img/Screenshots/1login_pink.png?raw=true 'login_pink')
 ![Alt text](/src/img/Screenshots/2posts_pink.png?raw=true 'posts_pink')
 ![Alt text](/src/img/Screenshots/3addpost_pink.png?raw=true 'addpost_pink')
