@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import logo from '../../img/consum_nobg.svg';
+import logo from '../../img/react_ts.png';
 import AuthContext from '../../store/auth-context';
 import classes from './MainHeader.module.css';
 
@@ -12,7 +12,9 @@ const MainHeader: React.FC<Props> = () => {
 
   return (
     <header className={classes['main-header']}>
-      <img src={logo} alt="logo" />
+      <div className={classes['logo']}>
+        <img src={logo} alt="logo" />
+      </div>
 
       {!isLoggedIn && <h2>Here you are! Get in!</h2>}
 

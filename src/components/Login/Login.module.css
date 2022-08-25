@@ -10,7 +10,7 @@
   margin-top: 0.5rem;
   margin-bottom: 0;
   text-align: center;
-  color: #d482a4;
+  color: var(--lighter-color);
   transition: 0.5s all;
 }
 
@@ -23,7 +23,7 @@
   transition: 0.5s all;
 }
 .login h3:hover {
-  color: #de065f;
+  color: var(--main-color);
   cursor: pointer;
 }
 
@@ -58,8 +58,8 @@
 
 .control input:focus {
   outline: none;
-  border-color: #4f005f;
-  background: #d587a7;
+  border-color: var(--input-border);
+  background: var(--input-active-bg);
 }
 
 .control.invalid input {

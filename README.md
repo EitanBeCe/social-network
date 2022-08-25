@@ -7,6 +7,8 @@ Simple social App on React and TypeScript:
 5. Possibility to put likes on posts
 6. Responsive template from 320px
 
+![Alt text](/src/img/react_ts.png?raw=true 'Optional Title')
+
 /
 
 What was used/done:
@@ -17,17 +19,19 @@ What was used/done:
 - localStorage
 - uuid
 - Responsive template
-- firebase?
+- CSS modules
+- 2 can switch between color themes in index.css
 
 /
 
-Marks for myself for probable future additional tasks:
+Marks for myself for possible future additional tasks:
 
 1. To do comments and comment edit?
 2. To do firebase (Now initial posts are heardcoded, auth status now in localStorage)? Routes (now everything is on one link)?
 3. Tests?)
 4. Reducer?
 5. Likes animation?
+6. Make theme toggler like here https://www.youtube.com/watch?v=G00V4tRx1ME or here https://www.youtube.com/watch?v=VMF1i5I2imE
 
 # Getting Started with Create React App
 

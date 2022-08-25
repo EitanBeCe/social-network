@@ -5,7 +5,7 @@
   text-align: start;
   color: #fff;
   /* background: rgb(207, 110, 110); */
-  background: rgb(55, 44, 49);
+  background: var(--bg2-color);
 }
 
 .single-post h2 {
@@ -22,7 +22,7 @@
 .btn {
   height: 2rem;
   padding: 0.3rem 2rem;
-  background: #372c31;
+  background: var(--bg2-color);
 }
 
 .modal-footer {

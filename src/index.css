@@ -2,10 +2,34 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* COLOR TEMPLATE 1 */
+
+  /* --main-color: #007acc;
+  --darker-color: #00568f;
+  --lighter-color: #54c3e2;
+  --bg-color: rgb(50, 50, 50);
+  --bg2-color: rgb(55, 44, 49);
+  --input-border: #4f005f;
+  --input-bg: rgb(81, 81, 81);
+  --input-active-bg: #54c3e2; */
+
+  /* COLOR TEMPLATE 2 */
+
+  --main-color: #de065f;
+  --darker-color: #8a033b;
+  --lighter-color: #d482a4;
+  --bg-color: rgb(50, 50, 50);
+  --bg2-color: rgb(55, 44, 49);
+  --input-border: #4f005f;
+  --input-bg: rgb(81, 81, 81);
+  --input-active-bg: #d587a7;
+}
+
 html {
   font-family: sans-serif;
   background: #fff;
-  background-color: rgb(50, 50, 50);
+  background-color: var(--bg-color);
 }
 
 body {
@@ -27,3 +51,5 @@ main {
 .ReactModal__Overlay--before-close {
   opacity: 0;
 }
+
+/* variables */
