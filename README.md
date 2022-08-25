@@ -1,34 +1,33 @@
-- Simple social app:
+Simple social App on React and TypeScript:
 
-1. Login screen with fields: Email and Password; and button to open registration screen
-2. Registration screen with fields: Email, Password, Password repeat, Back button. (fields must be verified)
-3. Main User screen (Posts View), with logout button, Posts View (list of posts) screen must include possibility to add new post and to edit
-   and remove existing posts
-4. Post View Screen (title, text, comments (count, list, new comment form)
-5. Adding a new Post Screen (title, text, submit button)
-6. Comments Screen (in Post View Screen), (remove, edit, add new)
-7. Edit Comment Screen
-8. Add & Edit Post Screen
+1. Login screen with fields: Email, Password and option to open registration screen
+2. Registration screen with fields: Email, Password, Password repeat, Back button. (fields are verified)
+3. Possibility to add a new post, to edit and remove existing posts
+4. Adding and Editing Posts Screen (title, text, submit and close buttons). Modal with "do you want to delete" check
+5. Possibility to put likes on posts
+6. Responsive template from 320px
 
-- Modal on deleting posts
+/
 
 What was used/done:
 
-- TS interfaces and types
+- TS annotations and types. Props interfaces.
 - React - useContext, useState, useEffect
 - ReactModal
 - localStorage
+- uuid
 - Responsive template
 - firebase?
 
-Marks for myself for curr work
+/
+
+Marks for myself for probable future additional tasks:
 
 1. To do comments and comment edit?
-2. AUTH pass with context!!!
-3. To do firebase (initial posts are heardcoded)? Routes (now everything on one link)? Auth status now in localStorage (Move to firebase?)
-4. Tests?)
-5. Reducer?
-6. Likes animation?
+2. To do firebase (Now initial posts are heardcoded, auth status now in localStorage)? Routes (now everything is on one link)?
+3. Tests?)
+4. Reducer?
+5. Likes animation?
 
 # Getting Started with Create React App
 
