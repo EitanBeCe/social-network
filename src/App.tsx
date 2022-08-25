@@ -9,7 +9,7 @@ import AuthContext from './store/auth-context';
 import PostsContext from './store/posts-context';
 
 const App: React.FC = () => {
-  const { isLoggedIn, onLogout, onLogin } = useContext(AuthContext);
+  const { isLoggedIn, onLogin } = useContext(AuthContext);
   const { addMode, closeAddMode, posts } = useContext(PostsContext);
 
   useEffect(() => {
@@ -19,13 +19,13 @@ const App: React.FC = () => {
 
   return (
     <>
-      <MainHeader isLoggedIn={isLoggedIn} onLogout={onLogout} />
+      <MainHeader />
       <main>
         {addMode && <AddPost />}
-        {/* Add next line for second option of how to render AddPost */}
+        {/* Switch 2 next lines - for different options of how to render AddPost */}
         {/* {isLoggedIn && !addMode && <Posts />} */}
-        {!isLoggedIn && <Login onLogin={onLogin} />}
         {isLoggedIn && <Posts />}
+        {!isLoggedIn && <Login onLogin={onLogin} />}
       </main>
     </>
   );
