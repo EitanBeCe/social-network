@@ -30,7 +30,7 @@ What was used/done:
 
 /
 
-Marks for myself for possible future additional tasks:
+Notes for myself for possible future additional tasks:
 
 1. To do comments and comment edit?
 2. To do firebase (Now initial posts are heardcoded, auth status now in localStorage)? Routes (now everything is on one link)?
