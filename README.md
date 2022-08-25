@@ -19,15 +19,16 @@ What was used/done:
 - ReactModal
 - localStorage
 - Responsive template
-
 - firebase?
 
 Marks for myself for curr work
 
 1. To do comments and comment edit?
 2. AUTH pass with context!!!
-3. Likes fix
-4. To do firebase (initial posts are heardcoded)? Routes (now everything on one link)? Auth status now in localStorage (Move to firebase?)
+3. To do firebase (initial posts are heardcoded)? Routes (now everything on one link)? Auth status now in localStorage (Move to firebase?)
+4. Tests?)
+5. Reducer?
+6. Likes animation?
 
 # Getting Started with Create React App
 
