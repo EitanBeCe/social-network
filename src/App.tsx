@@ -22,7 +22,7 @@ const App: React.FC = () => {
       <MainHeader isLoggedIn={isLoggedIn} onLogout={onLogout} />
       <main>
         {addMode && <AddPost />}
-        {/* Second option how to render AddPost */}
+        {/* Add next line for second option of how to render AddPost */}
         {/* {isLoggedIn && !addMode && <Posts />} */}
         {!isLoggedIn && <Login onLogin={onLogin} />}
         {isLoggedIn && <Posts />}

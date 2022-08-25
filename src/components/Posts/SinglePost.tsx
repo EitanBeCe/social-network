@@ -70,7 +70,7 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
             <button
               className={
                 likeActive
-                  ? `${classes.heart} ${classes['heart-already-active']}` // I didnt figure it out with class 'heart-active'. It creates an animation, but it animates again on exit Editing post
+                  ? `${classes.heart} ${classes['heart-already-active']}` // I didnt figure it out with class 'heart-active'. It creates an animation, but it animates again on exit Editing post. Tryed with one more state, useffect, timeout and refs
                   : classes.heart
               }
               onClick={likeHandler.bind(null, id)}
