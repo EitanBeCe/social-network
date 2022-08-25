@@ -20,7 +20,7 @@ const EditPost: React.FC<Props> = ({ closeEditPost, post }) => {
   const [title, setTitle] = useState(post.title);
   const [text, setText] = useState(post.text);
 
-  const updatedPost = { id, title, text, likes: 0 };
+  const updatedPost = { id, title, text, likes: 0, isLiked: post.isLiked };
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();

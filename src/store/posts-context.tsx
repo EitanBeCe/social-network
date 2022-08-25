@@ -38,7 +38,10 @@ export const PostsCtxProvider: React.FC<Props> = ({ children }) => {
   const closeAddMode = () => setAddMode(false);
 
   const addPostHandler = (id: Id, title: string, text: string) => {
-    setPosts((prev) => [{ id, title, text, likes: 0 }, ...prev]);
+    setPosts((prev) => [
+      { id, title, text, likes: 0, isLiked: false },
+      ...prev,
+    ]);
   };
 
   // ******* EDIT post ********* //

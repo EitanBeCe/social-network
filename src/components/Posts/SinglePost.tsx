@@ -21,7 +21,8 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
   // ******** LIKES **********
 
   const [like, setLike] = useState(post.likes);
-  const [likeActive, setLikeActive] = useState(false);
+  const [likeActive, setLikeActive] = useState(post.isLiked);
+  // const [isLiked, setIsLiked] = useState(post.isLiked);
 
   const likeHandler = () => {
     if (likeActive) {
