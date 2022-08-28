@@ -1,6 +1,7 @@
 .single-post {
   max-width: 40rem;
   padding: 2rem 3rem;
+  padding-bottom: 0.1rem;
   margin: 1rem auto;
   text-align: start;
   color: #fff;
@@ -77,5 +78,17 @@
   }
   .single-post {
     padding: 1.5rem;
+    padding-bottom: 0.1rem;
   }
+}
+
+.comments {
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  transition: 0.5s all;
+}
+.comments:hover {
+  color: var(--main-color);
+  cursor: pointer;
 }

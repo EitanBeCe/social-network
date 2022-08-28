@@ -28,7 +28,7 @@ What was used/done:
 - uuid
 - Responsive template
 - CSS modules
-- 2 can switch between color themes in index.css
+- Switch between color themes in index.css
 
 /
 

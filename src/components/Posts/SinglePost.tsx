@@ -59,6 +59,10 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
     closeEditPost();
   }, [post]);
 
+  // ********** COMMENTS ********
+
+  // useState or context?
+
   if (edit) return <EditPost closeEditPost={closeEditPost} post={post} />;
 
   return (
@@ -85,6 +89,7 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
             Delete
           </Button>
         </div>
+        <p className={classes.comments}>Comments</p>
       </Card>
 
       <ReactModal
