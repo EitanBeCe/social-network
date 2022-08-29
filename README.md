@@ -5,7 +5,8 @@ Simple social App on React and TypeScript:
 3. Possibility to add a new post, to edit and remove existing posts
 4. Adding and Editing Posts Screen (title, text, submit and close buttons). Modal with "do you want to delete" check
 5. Possibility to put likes on posts
-6. Responsive template from 320px
+6. Same for comments for each post
+7. Responsive template from 320px
 
 Made totally by myself following these tasks, not through course etc.
 
@@ -34,7 +35,7 @@ What was used/done:
 
 Notes for myself for possible future additional tasks:
 
-1. To do comments and comment edit?
+1. check comments, I did them through prop drill, but likes are working through context. Maybe to do everything by context.. But how to pass diff initial state fom firebase there? Just through an argument?
 2. To do firebase (Now initial posts are heardcoded, auth status now in localStorage)? Routes (now everything is on one link)?
 3. Tests?)
 4. Reducer?
