@@ -35,7 +35,7 @@ What was used/done:
 
 Notes for myself for possible future additional tasks:
 
-1. check comments, I did them through prop drill, but likes are working through context. Maybe to do everything by context.. But how to pass diff initial state fom firebase there? Just through an argument?
+1. check comments, I did them through prop drill (because each post has own comments), but likes are working ok through context. Maybe to do everything by context.. But how to pass diff initial state fom firebase there? Just through an argument?
 2. To do firebase (Now initial posts are heardcoded, auth status now in localStorage)? Routes (now everything is on one link)?
 3. Tests?)
 4. Reducer?
