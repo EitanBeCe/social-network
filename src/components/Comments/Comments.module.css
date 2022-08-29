@@ -14,11 +14,12 @@
 }
 
 .btn {
-  height: 3rem;
+  height: 1.4rem;
+  padding: 0 0.7rem;
 }
 
 @media (max-width: 420px) {
   .btn {
-    padding: 0.3rem 1.5rem;
+    padding: 0 0.7rem;
   }
 }

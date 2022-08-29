@@ -30,7 +30,6 @@ export const CommentsCtxProvider: React.FC<Props> = ({ children }) => {
   const [commentMode, setCommentMode] = useState(false);
 
   const openCommentMode = () => setCommentMode(true);
-
   const closeCommentMode = () => setCommentMode(false);
 
   // ********* MODAL for deleting comment ********** //

@@ -13,10 +13,12 @@ import { Comment } from '../../models/commentType';
 interface Props {
   id: string;
   comment: Comment;
+  updateComments: (id: Id, updatedComment: Comment) => void;
+  deleteComment: (id: Id) => void;
 }
 
-const SingleComment: React.FC<Props> = ({ id, comment }) => {
-  const { deleteComment, updateCommLikes } = useContext(CommentsContext);
+const SingleComment: React.FC<Props> = ({ id, comment, updateComments, deleteComment }) => {
+  const { updateCommLikes } = useContext(CommentsContext);
 
   // ******** LIKES **********
 
@@ -44,10 +46,6 @@ const SingleComment: React.FC<Props> = ({ id, comment }) => {
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
 
-  const deleteCommHandler = (id: Id) => {
-    deleteComment(id);
-  };
-
   // ******* EDIT comment ********
 
   const [edit, setEdit] = useState(false);
@@ -58,7 +56,14 @@ const SingleComment: React.FC<Props> = ({ id, comment }) => {
     closeEditComm();
   }, [comment]);
 
-  if (edit) return <EditComment closeEditComm={closeEditComm} comment={comment} />;
+  if (edit)
+    return (
+      <EditComment
+        closeEditComm={closeEditComm}
+        comment={comment}
+        updateComments={updateComments}
+      />
+    );
 
   return (
     <>
@@ -94,12 +99,12 @@ const SingleComment: React.FC<Props> = ({ id, comment }) => {
         style={{
           overlay: { backgroundColor: 'rgb(0, 0, 0, 0.4)' },
           content: {
-            padding: '2rem 3rem',
+            padding: '1rem 1.2rem',
             margin: '1rem auto',
             boxShadow: '0 2px 8px rgba(0, 0, 0, 0.26)',
             maxWidth: '40rem',
             borderRadius: '10px',
-            textAlign: 'start',
+            textAlign: 'center',
             color: '#fff',
             background: '#372c31',
             bottom: 'auto',
@@ -109,7 +114,7 @@ const SingleComment: React.FC<Props> = ({ id, comment }) => {
       >
         <h2>Are you sure?</h2>
         <div className={classes['modal-footer']}>
-          <Button onClick={deleteCommHandler.bind(null, id)} className={classes.btn}>
+          <Button onClick={deleteComment.bind(null, id)} className={classes.btn}>
             Delete
           </Button>
           <Button onClick={handleCloseModal} className={classes.btn}>

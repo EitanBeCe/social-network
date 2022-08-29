@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
+import { Comment } from '../../models/commentType';
 
-export const DUMMY_COMMENTS = [
+export const DUMMY_COMMENTS: Comment[] = [
   {
     id: uuidv4(),
     text: 'Comment 1',

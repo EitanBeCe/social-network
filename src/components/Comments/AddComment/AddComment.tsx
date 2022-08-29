@@ -1,14 +1,17 @@
-import { useContext, useState } from 'react';
-import CommentsContext from '../../../store/comments-context';
+import { useState } from 'react';
 
 import Button from '../../UI/Button/Button';
 import Card from '../../UI/Card/Card';
 import classes from './AddComment.module.css';
 import { v4 as uuidv4 } from 'uuid';
+import { Id } from '../../../models/idType';
 
-const AddComment: React.FC = () => {
-  const { closeAddCommMode, addCommentHandler } = useContext(CommentsContext);
+interface Props {
+  closeAddCommMode: () => void;
+  addCommentHandler: (id: Id, text: string) => void;
+}
 
+const AddComment: React.FC<Props> = ({ closeAddCommMode, addCommentHandler }) => {
   // States of user inputs of edidting comment
   const [text, setText] = useState('');
   const id = uuidv4();

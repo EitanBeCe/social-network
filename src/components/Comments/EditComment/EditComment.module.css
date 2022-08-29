@@ -76,9 +76,22 @@
     flex-direction: row;
   }
 }
-
+@media (max-width: 600px) {
+  .btn {
+    padding: 0.7rem;
+  }
+}
 @media (max-width: 500px) {
   .btn {
-    padding: 0.3rem 1rem;
+    padding: 0.3rem;
+  }
+  .edit {
+    padding: 0.7rem;
+  }
+  .actions {
+    margin-top: 0rem;
+  }
+  .control {
+    margin: 0.7rem 0;
   }
 }

@@ -10,6 +10,10 @@ import Card from '../UI/Card/Card';
 import { Post } from '../../models/postType';
 import { Id } from '../../models/idType';
 import CommentsContext from '../../store/comments-context';
+import { DUMMY_COMMENTS } from '../helpers/dummyComments';
+import Comments from '../Comments/Comments';
+import AddComment from '../Comments/AddComment/AddComment';
+import { Comment } from '../../models/commentType';
 
 interface Props {
   id: string;
@@ -60,9 +64,43 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
     closeEditPost();
   }, [post]);
 
-  // ********** COMMENTS ********
+  // *****************************
+  // ********** COMMENTS *********
+  // *****************************
 
-  const { openCommentMode } = useContext(CommentsContext);
+  const [comments, setComments] = useState<Comment[]>(DUMMY_COMMENTS); // List of all comments
+  const [commentMode, setCommentMode] = useState(false);
+
+  const toggleCommentMode = () => setCommentMode((prev) => !prev);
+
+  // ******** ADD Comment ********* //
+
+  const [addCommMode, setAddCommMode] = useState(false);
+  const openAddCommMode = () => setAddCommMode(true);
+  const closeAddCommMode = () => setAddCommMode(false);
+
+  const addCommentHandler = (id: Id, text: string) => {
+    setComments((prev) => [{ id, text, likes: 0, isLiked: false }, ...prev]);
+  };
+
+  useEffect(() => {
+    closeAddCommMode();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [comments]);
+
+  // ******* EDIT Comment ********* //
+
+  const updateComments = (id: Id, updatedComment: Comment) => {
+    setComments(comments.map((c) => (c.id === id ? updatedComment : c)));
+  };
+
+  // ******** DELETE Comment *******
+
+  const deleteComment = (id: Id) => {
+    setComments((prev) => prev.filter((comment) => comment.id !== id));
+  };
+
+  // ******* RENDER *******
 
   if (edit) return <EditPost closeEditPost={closeEditPost} post={post} />;
 
@@ -90,9 +128,20 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
             Delete
           </Button>
         </div>
-        <p className={classes.comments} onClick={openCommentMode}>
+        <p className={classes.comments} onClick={toggleCommentMode.bind(this)}>
           Comments
         </p>
+        {commentMode && addCommMode && (
+          <AddComment closeAddCommMode={closeAddCommMode} addCommentHandler={addCommentHandler} />
+        )}
+        {commentMode && (
+          <Comments
+            comments={comments}
+            openAddCommMode={openAddCommMode}
+            updateComments={updateComments}
+            deleteComment={deleteComment}
+          />
+        )}
       </Card>
 
       <ReactModal
@@ -104,12 +153,12 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
         style={{
           overlay: { backgroundColor: 'rgb(0, 0, 0, 0.4)' },
           content: {
-            padding: '2rem 3rem',
+            padding: '1rem 1rem',
             margin: '1rem auto',
             boxShadow: '0 2px 8px rgba(0, 0, 0, 0.26)',
             maxWidth: '40rem',
             borderRadius: '10px',
-            textAlign: 'start',
+            textAlign: 'center',
             color: '#fff',
             background: '#372c31',
             bottom: 'auto',
