@@ -1,29 +1,27 @@
 import { useContext, useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import Button from '../UI/Button/Button';
-import classes from './SinglePost.module.css';
+import classes from './SingleComment.module.css';
 
-import PostsContext from '../../store/posts-context';
-import EditPost from './EditPost/EditPost';
+import CommentsContext from '../../store/comments-context';
+import EditComment from './EditComment/EditComment';
 import Card from '../UI/Card/Card';
 
-import { Post } from '../../models/postType';
 import { Id } from '../../models/idType';
-import CommentsContext from '../../store/comments-context';
+import { Comment } from '../../models/commentType';
 
 interface Props {
   id: string;
-  post: Post;
+  comment: Comment;
 }
 
-const SinglePost: React.FC<Props> = ({ id, post }) => {
-  const { deletePost, updateLikes } = useContext(PostsContext);
+const SingleComment: React.FC<Props> = ({ id, comment }) => {
+  const { deleteComment, updateCommLikes } = useContext(CommentsContext);
 
   // ******** LIKES **********
 
-  const [like, setLike] = useState(post.likes);
-  const [likeActive, setLikeActive] = useState(post.isLiked);
-  // const [isLiked, setIsLiked] = useState(post.isLiked);
+  const [like, setLike] = useState(comment.likes);
+  const [likeActive, setLikeActive] = useState(comment.isLiked);
 
   const likeHandler = () => {
     if (likeActive) {
@@ -36,42 +34,37 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
   };
 
   useEffect(() => {
-    updateLikes(id, like);
+    updateCommLikes(id, like);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [like]);
 
-  // ************ MODAL for deliting post *************
+  // ************ MODAL for deliting comment *************
 
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
 
-  const deletePostHandler = (id: Id) => {
-    deletePost(id);
+  const deleteCommHandler = (id: Id) => {
+    deleteComment(id);
   };
 
-  // ******* EDIT post ********
+  // ******* EDIT comment ********
 
   const [edit, setEdit] = useState(false);
-  const openEditPost = () => setEdit(true);
-  const closeEditPost = () => setEdit(false);
+  const openEditComm = () => setEdit(true);
+  const closeEditComm = () => setEdit(false);
 
   useEffect(() => {
-    closeEditPost();
-  }, [post]);
+    closeEditComm();
+  }, [comment]);
 
-  // ********** COMMENTS ********
-
-  const { openCommentMode } = useContext(CommentsContext);
-
-  if (edit) return <EditPost closeEditPost={closeEditPost} post={post} />;
+  if (edit) return <EditComment closeEditComm={closeEditComm} comment={comment} />;
 
   return (
     <>
-      <Card className={classes['single-post']}>
-        <h2>{post.title}</h2>
-        <div>{post.text}</div>
-        <div className={classes['post-footer']}>
+      <Card className={classes['single-comment']}>
+        <div>{comment.text}</div>
+        <div className={classes['comment-footer']}>
           <div className={classes.content}>
             <button
               className={
@@ -83,16 +76,13 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
             />
             <span className={classes['hearts-amount']}>{like}</span>
           </div>
-          <Button onClick={openEditPost} className={classes.btn}>
+          <Button onClick={openEditComm} className={classes.btn}>
             Edit
           </Button>
           <Button onClick={handleOpenModal} className={classes.btn}>
             Delete
           </Button>
         </div>
-        <p className={classes.comments} onClick={openCommentMode}>
-          Comments
-        </p>
       </Card>
 
       <ReactModal
@@ -117,9 +107,9 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
           },
         }}
       >
-        <h2>Are you sure you want to delete the post?</h2>
+        <h2>Are you sure?</h2>
         <div className={classes['modal-footer']}>
-          <Button onClick={deletePostHandler.bind(null, id)} className={classes.btn}>
+          <Button onClick={deleteCommHandler.bind(null, id)} className={classes.btn}>
             Delete
           </Button>
           <Button onClick={handleCloseModal} className={classes.btn}>
@@ -131,4 +121,4 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
   );
 };
 
-export default SinglePost;
+export default SingleComment;

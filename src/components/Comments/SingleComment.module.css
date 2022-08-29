@@ -1,7 +1,7 @@
-.single-post {
+.single-comment {
   max-width: 40rem;
   padding: 2rem 3rem;
-  padding-bottom: 0.1rem;
+  /* padding-bottom: 0.1rem; */
   margin: 1rem auto;
   text-align: start;
   color: #fff;
@@ -9,11 +9,11 @@
   background: var(--bg2-color);
 }
 
-.single-post h2 {
+.single-comment h2 {
   margin-top: 0;
 }
 
-.post-footer {
+.comment-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -76,13 +76,13 @@
   .btn {
     padding: 0.3rem 1rem;
   }
-  .single-post {
+  .single-comment {
     padding: 1.5rem;
-    padding-bottom: 0.1rem;
+    /* padding-bottom: 0.1rem; */
   }
 }
 
-.comments {
+/* .comments {
   display: block;
   text-align: center;
   color: #ffffff;
@@ -93,4 +93,4 @@
 .comments:hover {
   color: var(--main-color);
   cursor: pointer;
-}
+} */

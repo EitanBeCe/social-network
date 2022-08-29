@@ -1,0 +1,24 @@
+.comments {
+  width: 90%;
+  max-width: 40rem;
+  padding: 1rem;
+  margin: 2rem auto;
+  text-align: center;
+  color: #fff;
+}
+
+.comment-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  height: 3rem;
+}
+
+@media (max-width: 420px) {
+  .btn {
+    padding: 0.3rem 1.5rem;
+  }
+}

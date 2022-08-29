@@ -1,0 +1,84 @@
+.edit {
+  max-width: 40rem;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.edit h3 {
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  text-align: center;
+  color: #ffffff;
+  transition: 0.5s all;
+}
+/* .edit h3:hover {
+  color: #de065f;
+  cursor: pointer;
+} */
+
+.control {
+  margin: 1rem 0;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.control label,
+.control textarea,
+.control input {
+  display: block;
+}
+
+.control label {
+  font-weight: bold;
+  flex: 1;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.control textarea,
+.control input {
+  flex: 3;
+  font: inherit;
+  padding: 0.35rem 0.35rem;
+  border-radius: 6px;
+  color: #fff;
+  background: var(--input-bg);
+  border: 1px solid #ccc;
+}
+
+.control textarea:focus,
+.control input:focus {
+  outline: none;
+  border-color: var(--input-border);
+  /* background: #d587a7; */
+}
+.control textarea {
+  width: auto;
+}
+
+/* .control.invalid input {
+  border-color: red;
+  background: #fbdada;
+} */
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .control {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 500px) {
+  .btn {
+    padding: 0.3rem 1rem;
+  }
+}
