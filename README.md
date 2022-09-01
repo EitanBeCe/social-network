@@ -16,7 +16,7 @@ Made totally by myself following these tasks.
 4. Adding and Editing Posts Screen (title, text, submit and close buttons). Modal with "do you want to delete" check
 5. Possibility to put likes on posts
 6. Same for comments for each post
-7. Color theme change
+7. Color theme changer
 8. Responsive template from 320px
 
 /
