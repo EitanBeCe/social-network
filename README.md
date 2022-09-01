@@ -41,7 +41,6 @@ Notes for myself for possible future additional tasks:
 3. Tests?)
 4. Reducer?
 5. Likes animation?
-6. Make theme toggler like here https://www.youtube.com/watch?v=G00V4tRx1ME or here https://www.youtube.com/watch?v=VMF1i5I2imE
 
 # Getting Started with Create React App
 
