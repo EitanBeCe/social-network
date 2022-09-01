@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import Button from '../UI/Button/Button';
 import classes from './SingleComment.module.css';
 
-import CommentsContext from '../../store/comments-context';
+// import CommentsContext from '../../store/comments-context';
 import EditComment from './EditComment/EditComment';
 import Card from '../UI/Card/Card';
 
@@ -15,10 +15,17 @@ interface Props {
   comment: Comment;
   updateComments: (id: Id, updatedComment: Comment) => void;
   deleteComment: (id: Id) => void;
+  updateCommLikes: (id: Id, updatedLike: number) => void;
 }
 
-const SingleComment: React.FC<Props> = ({ id, comment, updateComments, deleteComment }) => {
-  const { updateCommLikes } = useContext(CommentsContext);
+const SingleComment: React.FC<Props> = ({
+  id,
+  comment,
+  updateComments,
+  deleteComment,
+  updateCommLikes,
+}) => {
+  // const { updateCommLikes } = useContext(CommentsContext);
 
   // ******** LIKES **********
 

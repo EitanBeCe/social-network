@@ -12,6 +12,7 @@ interface Props {
   openAddCommMode: () => void;
   updateComments: (id: Id, updatedComment: Comment) => void;
   deleteComment: (id: Id) => void;
+  updateCommLikes: (id: Id, updatedLike: number) => void;
 }
 
 const Comments: React.FC<Props> = ({
@@ -19,6 +20,7 @@ const Comments: React.FC<Props> = ({
   openAddCommMode,
   updateComments,
   deleteComment,
+  updateCommLikes,
 }) => {
   return (
     <>
@@ -40,6 +42,7 @@ const Comments: React.FC<Props> = ({
           comment={c}
           updateComments={updateComments}
           deleteComment={deleteComment}
+          updateCommLikes={updateCommLikes}
         />
       ))}
       {/* </Card> */}

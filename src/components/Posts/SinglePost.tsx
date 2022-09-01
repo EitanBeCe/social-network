@@ -9,7 +9,6 @@ import Card from '../UI/Card/Card';
 
 import { Post } from '../../models/postType';
 import { Id } from '../../models/idType';
-import CommentsContext from '../../store/comments-context';
 import { DUMMY_COMMENTS } from '../helpers/dummyComments';
 import Comments from '../Comments/Comments';
 import AddComment from '../Comments/AddComment/AddComment';
@@ -100,6 +99,12 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
     setComments((prev) => prev.filter((comment) => comment.id !== id));
   };
 
+  // ******** LIKES Comments ********
+
+  const updateCommLikes = (id: Id, updatedLike: number) => {
+    setComments((prev) => prev.map((c) => (c.id === id ? { ...c, likes: updatedLike } : c)));
+  };
+
   // ******* RENDER *******
 
   if (edit) return <EditPost closeEditPost={closeEditPost} post={post} />;
@@ -140,6 +145,7 @@ const SinglePost: React.FC<Props> = ({ id, post }) => {
             openAddCommMode={openAddCommMode}
             updateComments={updateComments}
             deleteComment={deleteComment}
+            updateCommLikes={updateCommLikes}
           />
         )}
       </Card>
