@@ -1,14 +1,4 @@
-Simple social App on React and TypeScript:
-
-1. Login screen with fields: Email, Password and option to open registration screen
-2. Registration screen with fields: Email, Password, Password repeat, Back button. (fields are verified)
-3. Possibility to add a new post, to edit and remove existing posts
-4. Adding and Editing Posts Screen (title, text, submit and close buttons). Modal with "do you want to delete" check
-5. Possibility to put likes on posts
-6. Same for comments for each post
-7. Responsive template from 320px
-
-Made totally by myself following these tasks, not through course etc.
+Social App on React and TypeScript:
 
 ![Alt text](/src/img/Screenshots/1login_pink.png?raw=true 'login_pink')
 ![Alt text](/src/img/Screenshots/2posts_pink.png?raw=true 'posts_pink')
@@ -17,6 +7,17 @@ Made totally by myself following these tasks, not through course etc.
 ![Alt text](/src/img/Screenshots/5editpost_pink.png?raw=true 'editpost_pink')
 ![Alt text](/src/img/Screenshots/6login_blue.png?raw=true 'login_blue')
 ![Alt text](/src/img/Screenshots/7posts_blue.png?raw=true 'posts_blue')
+
+Made totally by myself following these tasks.
+
+1. Login screen with fields: Email, Password and option to open registration screen
+2. Registration screen with fields: Email, Password, Password repeat, Back button. (fields are verified)
+3. Possibility to add a new post, to edit and remove existing posts
+4. Adding and Editing Posts Screen (title, text, submit and close buttons). Modal with "do you want to delete" check
+5. Possibility to put likes on posts
+6. Same for comments for each post
+7. Color theme change
+8. Responsive template from 320px
 
 /
 
@@ -29,7 +30,7 @@ What was used/done:
 - uuid
 - Responsive template
 - CSS modules
-- Switch between color themes in index.css
+- Switch between color themes
 
 /
 
