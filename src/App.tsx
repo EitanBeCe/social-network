@@ -1,14 +1,15 @@
 import React, { useContext, useEffect } from 'react';
-import AddComment from './components/Comments/AddComment/AddComment';
-import Comments from './components/Comments/Comments';
+// import AddComment from './components/Comments/AddComment/AddComment';
+// import Comments from './components/Comments/Comments';
 
 import Login from './components/Login/Login';
 import MainHeader from './components/MainHeader/MainHeader';
 import AddPost from './components/Posts/AddPost/AddPost';
 import Posts from './components/Posts/Posts';
+import ColorTheme from './components/UI/ColorTheme/ColorTheme';
 
 import AuthContext from './store/auth-context';
-import CommentsContext from './store/comments-context';
+// import CommentsContext from './store/comments-context';
 import PostsContext from './store/posts-context';
 
 const App: React.FC = () => {
@@ -22,7 +23,7 @@ const App: React.FC = () => {
   }, [posts]);
 
   return (
-    <>
+    <ColorTheme>
       <MainHeader />
       <main>
         {addMode && <AddPost />}
@@ -35,7 +36,7 @@ const App: React.FC = () => {
         {isLoggedIn && <Posts />}
         {!isLoggedIn && <Login onLogin={onLogin} />}
       </main>
-    </>
+    </ColorTheme>
   );
 };
 

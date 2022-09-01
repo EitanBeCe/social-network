@@ -43,3 +43,15 @@
   background: var(--darker-color);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.26);
 }
+
+.color-toggle {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: var(--opposite-color);
+  cursor: pointer;
+  transition: 1.5s all;
+}
